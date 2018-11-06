@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bird : MonoBehaviour {
 
-    public float upForce;                   //Upward force of the "flap".
+    public float upForce = 200f;                   //Upward force of the "flap".
     private bool isDead = false;            //Has the player collided with a wall?
 
     private Animator anim;                  //Reference to the Animator component.
@@ -46,6 +46,6 @@ public class Bird : MonoBehaviour {
         //...tell the Animator about it...
         anim.SetTrigger("Die");
         //...and tell the game control about it.
-        GameControl.instance.BirdDied();
+        //GameControl.instance.BirdDied();
     }
 }
