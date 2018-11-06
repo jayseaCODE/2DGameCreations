@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Drifting : MonoBehaviour {
 
-    public float force;                     //Force of the drift (upward and downward)
+    public float force = 200f;                     //Force of the drift (upward and downward)
 
     private bool isDead = false;            //Has the character touch the streams?
     private Animator anim;                  //Reference to the Animator component.
@@ -25,7 +25,7 @@ public class Drifting : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 //...tell the animator about it and then...
-                anim.SetTrigger("Waddle");
+                anim.SetTrigger("WaddleUp");
                 //...zero out the character's current y velocity before...
                 rb2d.velocity = Vector2.zero;
                 //  new Vector2(rb2d.velocity.x, 0);
@@ -36,7 +36,7 @@ public class Drifting : MonoBehaviour {
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 //...tell the animator about it and then...
-                anim.SetTrigger("Waddle");
+                anim.SetTrigger("WaddleDown");
                 //...zero out the character's current y velocity before...
                 rb2d.velocity = Vector2.zero;
                 //  new Vector2(rb2d.velocity.x, 0);
@@ -56,6 +56,6 @@ public class Drifting : MonoBehaviour {
         //...tell the Animator about it...
         anim.SetTrigger("Die");
         //...and tell the game control about it.
-        GameControl.instance.CharacterDied();
+        //GameControl.instance.CharacterDied();
     }
 }
