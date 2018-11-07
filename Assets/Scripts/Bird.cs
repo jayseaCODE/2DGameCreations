@@ -39,7 +39,7 @@ public class Bird : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        // Zero out the bird's velocity
+        // Zero out the bird's velocity so that when it crashes it doesnt get dragged to a halt but immediately stop
         rb2d.velocity = Vector2.zero;
         // If the bird collides with something set it to dead...
         isDead = true;
