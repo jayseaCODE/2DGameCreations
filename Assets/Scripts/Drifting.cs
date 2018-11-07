@@ -56,6 +56,6 @@ public class Drifting : MonoBehaviour {
         //...tell the Animator about it...
         anim.SetTrigger("Die");
         //...and tell the game control about it.
-        //GameControl.instance.CharacterDied();
+        GameControl.instance.CharacterDied();
     }
 }
