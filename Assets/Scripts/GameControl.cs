@@ -9,7 +9,7 @@ public class GameControl : MonoBehaviour {
     public static GameControl instance;             //Singleton pattern. A reference to our game control script so we can access it statically.
     public Text scoreText;                          //A reference to the UI text component that displays the player's score.
     public GameObject gameOverText;                 //A reference to the object that displays the text which appears when the player dies.
-    private bool gameOver = false;                  //Is the game over?
+    public bool gameOver = false;                  //Is the game over?
     private int score = 0;                          //The player's score.
     public float scrollSpeed = -1.5f;               //Repeating background movement speed
 
