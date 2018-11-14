@@ -5,10 +5,10 @@ using UnityEngine;
 public class ObstaclePool : MonoBehaviour {
 
     public GameObject obstaclePrefab;
-    public int poolSize = 5;                                         //How many obstacles to keep on standby.
-    public float spawnRate = 4f;                                    //How quickly obstacles spawn.
-    public float heightMin = -2f;                                   //Minimum y value of the obstacle position.
-    public float heightMax = 2.5f;                                  //Maximum y value of the obstacle position.
+    public int poolSize = 8;                                         //How many obstacles to keep on standby.
+    public float spawnRate = 3f;                                    //How quickly obstacles spawn.
+    public float heightMin = -3f;                                   //Minimum y value of the obstacle position.
+    public float heightMax = 1.5f;                                  //Maximum y value of the obstacle position.
 
     private GameObject[] obstacles;                                 //Collection of pooled obstacles.
     private int currentObstacleIndex;                               //Index of the current obstacle in the collection.

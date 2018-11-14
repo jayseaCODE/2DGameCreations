@@ -443,6 +443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 481488406}
   - component: {fileID: 481488405}
+  - component: {fileID: 481488407}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -478,6 +479,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &481488407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 481488404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325e6f27b6359f442a4a1fe7608a422d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefab: {fileID: 1583008364162434, guid: 483840c96cb96f641ad967a244576604,
+    type: 2}
+  poolSize: 5
+  spawnRate: 4
+  heightMin: -3
+  heightMax: 1.5
 --- !u!1 &773701518
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +964,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0

@@ -11,7 +11,7 @@ public class GameControl : MonoBehaviour {
     public GameObject gameOverText;                 //A reference to the object that displays the text which appears when the player dies.
     public bool gameOver = false;                  //Is the game over?
     private int score = 0;                          //The player's score.
-    public float scrollSpeed = -1.5f;               //Repeating background movement speed
+    public float scrollSpeed = -1.2f;               //Repeating background movement speed
 
     private void Awake()
     {
