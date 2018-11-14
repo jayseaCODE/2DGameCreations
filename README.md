@@ -3,7 +3,7 @@ Assets used to create my multiple 2D Games
 1. FlappyBird (Inspired by Unity learnings)
 2. Poogle (Own creation with my partner)
 ## Getting Started
-Look into https://unity3d.com/learn/tutorials/topics/2d-game-creation to get you started
+For beginners to Unity, look into https://unity3d.com/learn/tutorials/topics/2d-game-creation to get you started with 2D creations.
 ### Prerequisites
 Unity Engine (Any 2017 version should be fine - I use LTS 2017.4.13f1)
 ## Authors
