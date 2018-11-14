@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 386773585}
   - component: {fileID: 386773584}
   m_Layer: 0
-  m_Name: Bird
+  m_Name: Poogle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ Animator:
   m_GameObject: {fileID: 386773583}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8b0e78376d1bc3c448b48cac3c05ea55, type: 2}
+  m_Controller: {fileID: 9100000, guid: 905ef425a48968342bd7ae396283c4b8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
