@@ -50,36 +50,6 @@ public class Drifting : MonoBehaviour {
                 rb2d.AddForce(new Vector2(0, -force));
             }
 #endif
-            //Check if we are running on iOS, Android
-#if UNITY_IOS || UNITY_ANDROID
-            int i = 0;
-            while ( i < Input.touchCount)
-            {
-                //Look for input to trigger upward drift
-                if (Input.GetTouch(i).position.y > screenHeight/2)
-                {
-                    //...tell the animator about it and then...
-                    anim.SetTrigger("WaddleUp");
-                    //...zero out the character's current y velocity before...
-                    rb2d.velocity = Vector2.zero;
-                    //  new Vector2(rb2d.velocity.x, 0);
-                    //..giving the character some upward force.
-                    rb2d.AddForce(new Vector2(0, force));
-                }
-                else if (Input.GetTouch(i).position.y < screenHeight / 2)
-                {
-                    //...tell the animator about it and then...
-                    anim.SetTrigger("WaddleDown");
-                    //...zero out the character's current y velocity before...
-                    rb2d.velocity = Vector2.zero;
-                    //  new Vector2(rb2d.velocity.x, 0);
-                    //..giving the character some downward force.
-                    rb2d.AddForce(new Vector2(0, -force));
-                }
-                i++;
-            }
-#endif
-
         }
     }
 
@@ -95,7 +65,7 @@ public class Drifting : MonoBehaviour {
         GameControl.instance.CharacterDied();
     }
 
-    public void testUp ()
+    public void SendCharacterDriftingUp ()
     {
         if (!isDead)
         {
@@ -108,7 +78,7 @@ public class Drifting : MonoBehaviour {
             rb2d.AddForce(new Vector2(0, force));
         }
     }
-    public void testDown()
+    public void SendCharacterDriftingDown()
     {
         if (!isDead)
         {
