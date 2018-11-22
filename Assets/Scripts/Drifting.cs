@@ -10,10 +10,13 @@ public class Drifting : MonoBehaviour {
     private Animator anim;                  //Reference to the Animator component.
     private Rigidbody2D rb2d;               //Holds a reference to the Rigidbody2D component of the bird.
 
+    private float screenHeight;
+
     // Use this for initialization
     void Start () {
         anim = this.GetComponent<Animator>();
         rb2d = this.GetComponent<Rigidbody2D>();
+        screenHeight = Screen.height;
 	}
 	
 	// Update is called once per frame
@@ -21,6 +24,9 @@ public class Drifting : MonoBehaviour {
 		//Don't allow control if character is dead
         if (!isDead)
         {
+            //Check if we are running either in the Unity editor or in a standalone build.
+            #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
+
             //Look for input to trigger upward drift
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
@@ -43,6 +49,36 @@ public class Drifting : MonoBehaviour {
                 //..giving the character some downward force.
                 rb2d.AddForce(new Vector2(0, -force));
             }
+#endif
+            //Check if we are running on iOS, Android
+#if UNITY_IOS || UNITY_ANDROID
+            int i = 0;
+            while ( i < Input.touchCount)
+            {
+                //Look for input to trigger upward drift
+                if (Input.GetTouch(i).position.y > screenHeight/2)
+                {
+                    //...tell the animator about it and then...
+                    anim.SetTrigger("WaddleUp");
+                    //...zero out the character's current y velocity before...
+                    rb2d.velocity = Vector2.zero;
+                    //  new Vector2(rb2d.velocity.x, 0);
+                    //..giving the character some upward force.
+                    rb2d.AddForce(new Vector2(0, force));
+                }
+                else if (Input.GetTouch(i).position.y < screenHeight / 2)
+                {
+                    //...tell the animator about it and then...
+                    anim.SetTrigger("WaddleDown");
+                    //...zero out the character's current y velocity before...
+                    rb2d.velocity = Vector2.zero;
+                    //  new Vector2(rb2d.velocity.x, 0);
+                    //..giving the character some downward force.
+                    rb2d.AddForce(new Vector2(0, -force));
+                }
+                i++;
+            }
+#endif
 
         }
     }
@@ -57,5 +93,32 @@ public class Drifting : MonoBehaviour {
         anim.SetTrigger("Die");
         //...and tell the game control about it.
         GameControl.instance.CharacterDied();
+    }
+
+    public void testUp ()
+    {
+        if (!isDead)
+        {
+            //...tell the animator about it and then...
+            anim.SetTrigger("WaddleUp");
+            //...zero out the character's current y velocity before...
+            rb2d.velocity = Vector2.zero;
+            //  new Vector2(rb2d.velocity.x, 0);
+            //..giving the character some upward force.
+            rb2d.AddForce(new Vector2(0, force));
+        }
+    }
+    public void testDown()
+    {
+        if (!isDead)
+        {
+            //...tell the animator about it and then...
+            anim.SetTrigger("WaddleDown");
+            //...zero out the character's current y velocity before...
+            rb2d.velocity = Vector2.zero;
+            //  new Vector2(rb2d.velocity.x, 0);
+            //..giving the character some downward force.
+            rb2d.AddForce(new Vector2(0, -force));
+        }
     }
 }
