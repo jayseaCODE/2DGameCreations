@@ -25,7 +25,7 @@ public class Drifting : MonoBehaviour {
         if (!isDead)
         {
             //Check if we are running either in the Unity editor or in a standalone build.
-            #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
 
             //Look for input to trigger upward drift
             if (Input.GetKeyDown(KeyCode.UpArrow))
