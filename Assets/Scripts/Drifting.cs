@@ -12,6 +12,9 @@ public class Drifting : MonoBehaviour {
 
     private float screenHeight;
 
+    private Vector2 touchOrigin = -Vector2.one; //Has the position of where the player's finger first was touched.
+    // -Vector2.one means the default value is a position off the screen.
+
     // Use this for initialization
     void Start () {
         anim = this.GetComponent<Animator>();
@@ -50,6 +53,34 @@ public class Drifting : MonoBehaviour {
                 rb2d.AddForce(new Vector2(0, -force));
             }
 #endif
+#if UNITY_ANDROID
+            if (Input.touchCount > 0) // Check if input system has registered more than one touches
+            {
+                Touch myTouch = Input.touches[0];
+
+                if (myTouch.phase == TouchPhase.Began)
+                {
+                    touchOrigin = myTouch.position;
+                }
+                else if (myTouch.phase == TouchPhase.Ended && touchOrigin.x >= 0)
+                {
+                    Vector2 touchEnd = myTouch.position;
+                    float x = touchEnd.x - touchOrigin.x; // Calculate the distance in the x axis direction
+                    float y = touchEnd.y - touchOrigin.y; // Same for the y axis
+                    touchOrigin.x = -1; // reset the conditional so that it does not always evaluate to True
+
+                    //We are only concerned of the vertical direction of the touches swipes (Up or Down)
+                    if (y > 0)
+                    {
+                        SendCharacterDriftingUp();
+                    }
+                    else
+                    {
+                        SendCharacterDriftingDown();
+                    }
+                }
+            }
+#endif
         }
     }
 
@@ -65,7 +96,7 @@ public class Drifting : MonoBehaviour {
         GameControl.instance.CharacterDied();
     }
 
-    public void SendCharacterDriftingUp ()
+    private void SendCharacterDriftingUp ()
     {
         if (!isDead)
         {
@@ -78,7 +109,7 @@ public class Drifting : MonoBehaviour {
             rb2d.AddForce(new Vector2(0, force));
         }
     }
-    public void SendCharacterDriftingDown()
+    private void SendCharacterDriftingDown()
     {
         if (!isDead)
         {
