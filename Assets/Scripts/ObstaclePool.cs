@@ -6,7 +6,7 @@ public class ObstaclePool : MonoBehaviour {
 
     public GameObject obstaclePrefab;
     public int poolSize = 8;                                         //How many obstacles to keep on standby.
-    public float spawnRate = 3f;                                    //How quickly obstacles spawn.
+    public float spawnRate = 3f;                                    //How quickly obstacles spawn. One every spawnRate seconds.
     public float heightMin = -3f;                                   //Minimum y value of the obstacle position.
     public float heightMax = 1.5f;                                  //Maximum y value of the obstacle position.
 
