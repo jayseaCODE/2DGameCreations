@@ -162,8 +162,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!60 &386773586
-PolygonCollider2D:
+--- !u!61 &386773586
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -184,23 +184,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.565, y: 0.005}
-      - {x: 0.525, y: 0.044999998}
-      - {x: 0.285, y: 0.235}
-      - {x: 0.005, y: 0.33499998}
-      - {x: -0.285, y: 0.33499998}
-      - {x: -0.345, y: 0.325}
-      - {x: -0.48499998, y: 0.24499999}
-      - {x: -0.565, y: 0.105}
-      - {x: -0.565, y: -0.145}
-      - {x: -0.545, y: -0.24499999}
-      - {x: -0.39499998, y: -0.33499998}
-      - {x: 0.21499999, y: -0.33499998}
-      - {x: 0.435, y: -0.185}
-      - {x: 0.555, y: -0.105}
-      - {x: 0.565, y: -0.044999998}
+  serializedVersion: 2
+  m_Size: {x: 0.56, y: 0.63}
+  m_EdgeRadius: 0
 --- !u!50 &386773587
 Rigidbody2D:
   serializedVersion: 4
@@ -576,6 +562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 480944068}
   - component: {fileID: 480944067}
+  - component: {fileID: 480944069}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -611,6 +598,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &480944069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 480944066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325e6f27b6359f442a4a1fe7608a422d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefab: {fileID: 1440169761136426, guid: cd4ada090fc85ff4d8965c218e47ea12,
+    type: 2}
+  poolSize: 8
+  spawnRate: 3
+  heightMin: -2
+  heightMax: 2
 --- !u!1001 &509267254
 Prefab:
   m_ObjectHideFlags: 0
@@ -620,7 +624,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4696491383509460, guid: cd4ada090fc85ff4d8965c218e47ea12, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 13.23
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4696491383509460, guid: cd4ada090fc85ff4d8965c218e47ea12, type: 2}
       propertyPath: m_LocalPosition.y
@@ -650,25 +654,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 61509228078372334, guid: cd4ada090fc85ff4d8965c218e47ea12,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 61509228078372334, guid: cd4ada090fc85ff4d8965c218e47ea12,
-        type: 2}
-      propertyPath: m_Offset.x
-      value: 1.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 61509228078372334, guid: cd4ada090fc85ff4d8965c218e47ea12,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: 0.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 61509228078372334, guid: cd4ada090fc85ff4d8965c218e47ea12,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 5.24
+    - target: {fileID: 1440169761136426, guid: cd4ada090fc85ff4d8965c218e47ea12, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd4ada090fc85ff4d8965c218e47ea12, type: 2}
