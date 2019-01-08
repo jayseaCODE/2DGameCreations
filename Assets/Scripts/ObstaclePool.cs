@@ -14,7 +14,7 @@ public class ObstaclePool : MonoBehaviour {
     private int currentObstacleIndex;                               //Index of the current obstacle in the collection.
 
     private Vector2 objectPoolPosition = new Vector2(-15, -25);     //A holding position for our unused obstacles offscreen.
-    private float spawnXPosition = 10f;
+    private float spawnXPosition = 15f;
     private float timeSinceLastSpawned;
 
     // Use this for initialization
