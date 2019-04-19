@@ -10,7 +10,7 @@ public class Obstacle : MonoBehaviour {
         {
             //If the character hits the trigger collider in between the obstacles then
             //tell the game control that the character scored.
-            GameControl.instance.CharacterScored();
+            GameManager.Singleton.CharacterScored();
         }
     }
 }

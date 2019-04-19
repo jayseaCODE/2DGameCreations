@@ -35,7 +35,7 @@ public class ObstaclePool : MonoBehaviour {
 	void Update () {
         timeSinceLastSpawned += Time.deltaTime;
         //This spawns obstacles as long as the game is not over and it is time to spawn a new obstacle.
-        if (!GameControl.instance.gameOver && timeSinceLastSpawned >= spawnRate)
+        if (!GameManager.Singleton.gameOver && timeSinceLastSpawned >= spawnRate)
         {
             timeSinceLastSpawned = 0f;
 

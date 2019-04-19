@@ -10,7 +10,7 @@ public class Column : MonoBehaviour {
         {
             //If Poogle hits the trigger collider in between the water columns then
             //tell the game control that Poogle scored.
-            GameControl.instance.CharacterScored();
+            GameManager.Singleton.CharacterScored();
         }
     }
 }
