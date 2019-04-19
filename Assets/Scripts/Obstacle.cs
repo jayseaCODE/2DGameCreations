@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour {
-
-    void OnTriggerEnter2D(Collider2D other)
+namespace Poogle
+{
+    public class Obstacle : MonoBehaviour
     {
-        if (other.GetComponent<Bird>() != null)
+
+        void OnTriggerEnter2D(Collider2D other)
         {
-            //If the character hits the trigger collider in between the obstacles then
-            //tell the game control that the character scored.
-            GameManager.Singleton.CharacterScored();
+            if (other.GetComponent<Bird>() != null)
+            {
+                //If the character hits the trigger collider in between the obstacles then
+                //tell the game control that the character scored.
+                GameManager.Singleton.CharacterScored();
+            }
         }
     }
 }

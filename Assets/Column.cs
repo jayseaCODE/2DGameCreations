@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Column : MonoBehaviour {
-
-	void OnTriggerEnter2D(Collider2D other)
+namespace Poogle
+{
+    public class Column : MonoBehaviour
     {
-        if (other.GetComponent<Drifting>() != null)
+
+        void OnTriggerEnter2D(Collider2D other)
         {
-            //If Poogle hits the trigger collider in between the water columns then
-            //tell the game control that Poogle scored.
-            GameManager.Singleton.CharacterScored();
+            if (other.GetComponent<Drifting>() != null)
+            {
+                //If Poogle hits the trigger collider in between the water columns then
+                //tell the game control that Poogle scored.
+                GameManager.Singleton.CharacterScored();
+            }
         }
     }
 }
+
