@@ -19,7 +19,6 @@ namespace Poogle
     public sealed class UIManager : MonoBehaviour
     {
         private static UIManager m_Singleton;
-
         public static UIManager Singleton
         {
             get
@@ -28,6 +27,7 @@ namespace Poogle
             }
         }
 
+        [SerializeField]
         private List<UIScreen> m_Screens;
         private UIScreen m_ActiveScreen;
 
