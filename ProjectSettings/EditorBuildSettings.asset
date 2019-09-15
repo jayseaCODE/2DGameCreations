@@ -8,3 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Poogle.unity
     guid: 9d7b358678db9604ab378ad2120bef90
+  m_configObjects: {}
