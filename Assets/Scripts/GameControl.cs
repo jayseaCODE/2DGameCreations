@@ -13,6 +13,7 @@ public class GameControl : MonoBehaviour {
     public bool gameOver = false;                  //Is the game over?
     private int score = 0;                          //The player's score.
     public float scrollSpeed = -1.2f;               //Repeating background movement speed
+    public float obstacleSpawnTimeInterval = 5f;            //How quickly obstacles spawn. One every spawnTimeInterval seconds.
 
     private void Awake()
     {
@@ -46,6 +47,10 @@ public class GameControl : MonoBehaviour {
         score++;
         //...and adjust the score text.
         scoreText.text = "Score: " + score.ToString();
+        //...and increase the scroll speed
+        scrollSpeed -= 0.2f;
+        //...and decrease the spawn rate time interval
+        obstacleSpawnTimeInterval -= 0.2f;
     }
 
     public void CharacterDied()
