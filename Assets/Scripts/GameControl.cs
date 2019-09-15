@@ -36,7 +36,13 @@ public class GameControl : MonoBehaviour {
             //...reload the current scene.
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-	}
+
+        //  Android back button is treated the same as the "Escape" KeyCode
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
 
     public void CharacterScored()
     {
