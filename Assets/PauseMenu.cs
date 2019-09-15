@@ -12,8 +12,10 @@ public class PauseMenu : MonoBehaviour {
     {
         if (pauseMenuUI == null)
         {
+#if UNITY_EDITOR
             Debug.LogError("Pause Menu Script has missing PauseMenuUI reference in Canvas!");
             UnityEditor.EditorApplication.isPlaying = false;
+#endif
         }
     }
 
