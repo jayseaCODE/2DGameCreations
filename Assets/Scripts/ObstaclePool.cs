@@ -6,7 +6,6 @@ public class ObstaclePool : MonoBehaviour {
 
     public GameObject obstaclePrefab;
     public int poolSize = 8;                                         //How many obstacles to keep on standby.
-    public float spawnRate = 3f;                                    //How quickly obstacles spawn. One every spawnRate seconds.
     public float heightMin = -3f;                                   //Minimum y value of the obstacle position.
     public float heightMax = 1.5f;                                  //Maximum y value of the obstacle position.
 
@@ -35,14 +34,17 @@ public class ObstaclePool : MonoBehaviour {
 	void Update () {
         timeSinceLastSpawned += Time.deltaTime;
         //This spawns obstacles as long as the game is not over and it is time to spawn a new obstacle.
-        if (!GameControl.instance.gameOver && timeSinceLastSpawned >= spawnRate)
+        if (!GameControl.instance.gameOver && timeSinceLastSpawned >= GameControl.instance.obstacleSpawnTimeInterval)
         {
             timeSinceLastSpawned = 0f;
 
             //Set a random y position for the obstacle
             float spawnYPosition = Random.Range(heightMin, heightMax);
+            spawnXPosition = spawnXPosition + Random.Range(-1f, 1f);
+            Vector3 randomPosition = new Vector3(spawnXPosition, spawnYPosition, 0);
             //...then set the current obstacle to that position.
-            obstacles[currentObstacleIndex].transform.position = new Vector2(spawnXPosition, spawnYPosition);
+            obstacles[currentObstacleIndex].transform.SetPositionAndRotation(randomPosition, new Quaternion());
+            //obstacles[currentObstacleIndex].transform.position = new Vector2(spawnXPosition, spawnYPosition);
 
             //Increase the value of currentObstacleIndex. If the new size is too big, set it back to zero
             currentObstacleIndex++;
