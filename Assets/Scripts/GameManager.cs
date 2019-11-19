@@ -65,9 +65,12 @@ namespace Poogle
 
         public void Init()
         {
+            // Uncomment the lines below after UIManager is setup properly
+            /*
             EndGame();
             UIManager.Singleton.Init();
             StartCoroutine(Load());
+            */
         }
 
         private IEnumerator Load()
