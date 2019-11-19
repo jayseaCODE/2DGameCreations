@@ -71,15 +71,20 @@ namespace Poogle
         public void Init()
         {
             UIScreen loadingScreen = GetScreen(UIScreenInfo.LOADING_SCREEN);
-            OpenScreen(loadingScreen);
+            if (loadingScreen != null)
+            {
+                OpenScreen(loadingScreen);
+            }
         }
 
         public void OpenScreen(UIScreen screen)
         {
-            CloseAllScreens();
-            screen.UpdateScreenStatus(true);
-            m_ActiveScreen = screen;
-            
+            if (screen != null)
+            {
+                CloseAllScreens();
+                screen.UpdateScreenStatus(true);
+                m_ActiveScreen = screen;
+            }        
         }
 
         private void CloseAllScreens()
