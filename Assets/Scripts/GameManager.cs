@@ -24,6 +24,7 @@ namespace Poogle
         public bool gameOver = false;                  //Is the game over?
         private int m_Score = 0;                          //The player's score.
         public float scrollSpeed = -1.2f;               //Repeating background movement speed
+        public float obstacleSpawnTimeInterval = 5f;            //How quickly obstacles spawn. One every spawnTimeInterval seconds.
 
         private bool m_GameStarted = false;
         private bool m_GameRunning = false;
@@ -91,6 +92,10 @@ namespace Poogle
             m_Score++;
             //...and adjust the score text.
             scoreText.text = "Score: " + m_Score.ToString();
+            //...and increase the scroll speed
+            scrollSpeed -= 0.2f;
+            //...and decrease the spawn rate time interval
+            obstacleSpawnTimeInterval -= 0.2f;
         }
 
         public void CharacterDied()
