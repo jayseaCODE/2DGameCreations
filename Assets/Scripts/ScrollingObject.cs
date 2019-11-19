@@ -27,10 +27,5 @@ namespace Poogle
                 rb2d.velocity = Vector2.zero;
             }
         }
-
-    private void FixedUpdate()
-    {
-        rb2d.velocity = new Vector2(GameControl.instance.scrollSpeed, 0);
-    }
     }
 }
