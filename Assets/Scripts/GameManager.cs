@@ -59,18 +59,16 @@ namespace Poogle
             //  Android back button is treated the same as the "Escape" KeyCode
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Application.Quit();
+                ExitGame();
             }
         }
 
         public void Init()
         {
             // Uncomment the lines below after UIManager is setup properly
-            /*
             EndGame();
             UIManager.Singleton.Init();
             StartCoroutine(Load());
-            */
         }
 
         private IEnumerator Load()
@@ -80,16 +78,33 @@ namespace Poogle
             UIManager.Singleton.OpenScreen(startScreen);
         }
 
-        private void EndGame()
+        public void ExitGame()
         {
-            m_GameStarted = false;
-            StopGame();
+            Application.Quit();
         }
 
-        private void StopGame()
+        public void StartGame()
+        {
+            m_GameStarted = true;
+            ResumeGame();
+        }
+
+        public void StopGame()
         {
             m_GameRunning = false;
             Time.timeScale = 0f;
+        }
+
+        public void ResumeGame()
+        {
+            m_GameRunning = true;
+            Time.timeScale = 1f;
+        }
+
+        public void EndGame()
+        {
+            m_GameStarted = false;
+            StopGame();
         }
 
         public void CharacterScored()
