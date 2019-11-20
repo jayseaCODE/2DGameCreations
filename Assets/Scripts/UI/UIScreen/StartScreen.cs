@@ -7,6 +7,7 @@ namespace Poogle.UI
 {
     public class StartScreen : UIScreen
     {
+        [SerializeField]
         protected Button PlayButton = null;
         protected Button HelpButton = null;
         protected Button InfoButton = null;
