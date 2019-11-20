@@ -22,13 +22,13 @@ namespace Poogle.UI
                 if (inGameScreen != null)
                 {
                     uiManager.OpenScreen(inGameScreen);
-                    //GameManager.Singleton.StartGame();
+                    GameManager.Singleton.StartGame();
                 }
             });
 
             ExitButton.SetButtonAction(() =>
             {
-                //GameManager.Singleton.ExitGame();
+                GameManager.Singleton.ExitGame();
             });
         }
 
